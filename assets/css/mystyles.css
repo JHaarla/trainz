@@ -1,0 +1,77 @@
+.parallax {
+    position: static;
+}
+
+.parallax-container {
+    height: 425px;
+
+}
+
+.navbar-fixed {
+    top: 0;
+    position: fixed;
+}
+
+#floatText {
+    position: relative;
+    top: 325px;
+    color: #ffffff;
+}
+
+.header-placeholder {
+    height: 65px;
+    width: 100%;
+    display: none;
+}
+
+.shim {
+    height: 20px;
+    display: block;
+}
+
+#mainTitle {
+    margin: 0;
+    /* text-align: justify; */
+    font-weight: 600;
+    font-size: 2.5rem;
+    padding-top: 10px;
+}
+ 
+#my-card-title {
+    font-weight: 400;
+    color: #ffffff;
+}
+/* .navbar-fixed + .mypadding {
+    padding-top: 20px;
+}  */
+.row {
+    margin-bottom: 0.8rem;
+    margin-top: 0.8rem;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+/* .col {
+    margin-left: auto;
+    margin-right: auto;
+
+} */
+
+.myButton {
+    margin-bottom:20px;
+    font-size: 1.25rem;
+}
+
+.input-field {
+    margin-bottom: 0;
+}
+
+.padded-row {
+    margin-top: 2rem;
+}
+
+.col .row {
+    margin-left: auto;
+    margin-right: auto;
+
+}

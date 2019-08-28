@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train Schedules</title>
 
-    <!-- materializeCSS links - CSS & JS -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" integrity="sha256-13EKEXRsynh3cmmNF1dlW6uvoC1SZVaW94bIHZQJoMU=" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js" integrity="sha256-6DDZX77BrYnAmK9a3N3tvNPtyTIk1q1w9iW+UBtot3Y=" crossorigin="anonymous"></script> -->
+
+    <!-- <link href="assets/css/reset.css" type="text/css" rel="stylesheet"> -->
+
+
+    <!-- materializeCSS links - CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" integrity="sha256-13EKEXRsynh3cmmNF1dlW6uvoC1SZVaW94bIHZQJoMU=" crossorigin="anonymous" />
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="assets/css/materialize.css"  media="screen,projection"/>
+
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -27,31 +29,36 @@
 </head>
 <body>
 
-    <!-- <div id = "first-parallax" class = "parallax-container">
-        <div class="parallax">
-            <img src="assets/images/train.jpg" alt="train background image" class="responsive-img">
+    <div class = "parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light" id="floatText">Don't Miss The Train!!</h5>
+                </div>
+            </div>
         </div>
-    </div> -->
+        <div class = "parallax">
+            <img src="assets/images/train3-tallslice.jpg">
+        </div>
+    </div>
 
     <header>
-        <div class="navbar-fixed">
+        <div class="navbar" id = "stickyScroll">
             <nav class="light-blue lighten-2 z-depth-2" role="navigation">
-                <div class="nav-wrapper container center-align">
-                    <div id="pagetitle">Train Schedules</div>
-                    <div id="pageSubTitle">Don't Miss The Train!!</div>
+                <div class="nav-wrapper container center">
+                    <h3 id="mainTitle">Train Schedules</h3>
                 </div>
             </nav>
         </div>
-    </header>
-                <div id = "first-parallax" class = "parallax-container">
-                    <div class="parallax">
-                        <img class="responsive-img z-depth-2" src="assets/images/train3slice.jpg">
-                    </div></div>
-                
-    <div class="container">
-        
-        <article>
+    </header>        
 
+<!-- This is needed for my solution to stop a "jump" when the header becomes fixed -->
+<div class="header-placeholder"></div>
+<div class="shim"></div>
+
+
+<article class="container">               
+   
             <!-- table for train info -->
             <div class="row">
                 <div class="col s12">
@@ -99,9 +106,9 @@
             <div class="row">
                 <div class="col s12">
                     <div class="card center-align">
-                        <span class="card-title light-blue lighten-2 col s12" id="my-card-title">Add Train</span><p></p>
-                            <div class="row" id="myrow">
-                                <div class="input-field col s12 mycol">
+                        <span class="card-title light-blue lighten-2 col s12" id="my-card-title">Add Train</span>
+                            <div class="row " id="myrow">
+                                <div class="input-field col s12 mycol padded-row">
                                 <input id="trainName" type="text" class="validate">
                                 <label for="trainName">Train Name</label>
                                 </div>
@@ -175,11 +182,21 @@
                 </div> -->
 
         </article>
-    </div>
-    <img class="responsive-img z-depth-2" src="assets/images/train3slice.jpg">
+   
+
+
+
+    <div class = "parallax-container">
+            <div class = "parallax">
+                <img src="assets/images/tracks-slice.jpg">
+            </div>
+        </div>
+
+
+    <!-- <img class="responsive-img z-depth-2" src="assets/images/train3slice.jpg"> -->
 
     <!-- <div class="page-footer"> -->
-            <footer class="page-footer center light-blue lighten-4">
+            <footer class="page-footer center light-blue lighten-2">
                     <!-- <div class="footer-copyright"> -->
                         <div class="container">
                             &copy; 2019 | Jarkko Haarla &lt;haarladev&gt;
@@ -196,14 +213,14 @@
 
 
     <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="assets/js/materialize.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/materialize.js"></script> -->
     <!-- my javascript links -->
-    <script src="assets/js/js-styles.js"></script>
-    <script src="assets/js/trainapp.js"></script>
-<script>
-$(.parallax").parallax();
+    <!-- <script src="assets/js/js-styles.js"></script> -->
+    <script src="assets/js/trainzscript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js" integrity="sha256-6DDZX77BrYnAmK9a3N3tvNPtyTIk1q1w9iW+UBtot3Y=" crossorigin="anonymous"></script>
 
 
-</script>
+
+
 </body>
 </html>

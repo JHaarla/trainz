@@ -2,9 +2,12 @@
     position: static;
 }
 
-.parallax-container {
+#parallax-one {
     height: 425px;
+}
 
+#parallax-two {
+    height: 250px;
 }
 
 .navbar-fixed {
@@ -73,5 +76,11 @@
 .col .row {
     margin-left: auto;
     margin-right: auto;
+
+}
+
+.page-footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }

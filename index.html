@@ -25,11 +25,16 @@
 
     <!-- my CSS link -->
     <link href="assets/css/mystyles.css" type="text/css" rel="stylesheet">
+
+    <!-- firebase stuff -->
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-database.js"></script>
+
     
 </head>
 <body>
 
-    <div class = "parallax-container">
+    <div class = "parallax-container" id="parallax-one">
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
@@ -131,7 +136,7 @@
                                     <label for="frequency">Frequency (in minutes)</label>
                                 </div>
                             </div>
-                            <button class="waves-effect waves-light btn light-blue lighten-2 myButton" type="submit"><i class="material-icons left">train</i><i class="material-icons right">send</i>submit</button>
+                            <button class="waves-effect waves-light btn light-blue lighten-2 myButton" id="addTrainBtn" type="submit"><i class="material-icons left">train</i><i class="material-icons right">send</i>submit</button>
                     </div>
                     
                 </div>
@@ -186,7 +191,7 @@
 
 
 
-    <div class = "parallax-container">
+    <div class = "parallax-container" id="parallax-two">
             <div class = "parallax">
                 <img src="assets/images/tracks-slice.jpg">
             </div>

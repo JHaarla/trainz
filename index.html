@@ -83,23 +83,7 @@
                         </thead>
                 
                         <tbody>
-                            <!-- <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
-                            <td>$0.87</td>
-                            <td>$0.87</td>
-                            </tr>
-                            <tr>
-                            <td>Alan</td>
-                            <td>Jellybean</td>
-                            <td>$3.76</td>
-                            </tr>
-                            <tr>
-                            <td>Jonathan</td>
-                            <td>Lollipop</td>
-                            <td>$7.00</td>
-                            </tr> -->
+                            <!-- train info will be appended here from the JS script -->
                         </tbody>
                     </table>
                 <!-- </div> -->
@@ -114,29 +98,29 @@
                         <span class="card-title light-blue lighten-2 col s12" id="my-card-title">Add Train</span>
                             <div class="row " id="myrow">
                                 <div class="input-field col s12 mycol padded-row">
-                                <input id="trainName" type="text" class="validate">
-                                <label for="trainName">Train Name</label>
+                                <input id="trainName" type="text" class="validate inputField">
+                                <label id="label" for="trainName">Train Name</label>
                                 </div>
                             </div>
                             <div class="row" id="myrow">
                                 <div class="input-field col s12 mycol">
-                                    <input id="trainDestination" type="text" class="validate">
-                                    <label for="trainDestination">Destination</label>
+                                    <input id="trainDestination" type="text" class="validate inputField">
+                                    <label id="label" for="trainDestination">Destination</label>
                                 </div>
                             </div>
                             <div class="row" id="myrow">
                                 <div class="input-field col s12 mycol">
-                                    <input id="firstTrain" type="text" class="validate">
-                                    <label for="firstTrain">First Train Time (HH:mm - military time)</label>
+                                    <input id="firstTrain" type="text" class="validate inputField">
+                                    <label id="label" for="firstTrain">First Train Time (HH:mm - military time)</label>
                                 </div>
                             </div>
                             <div class="row" id="myrow">
                                 <div class="input-field col s12 mycol">
-                                    <input id="frequency" type="text" class="validate">
-                                    <label for="frequency">Frequency (in minutes)</label>
+                                    <input id="frequency" type="text" class="validate inputField">
+                                    <label id="label" for="frequency">Frequency (in minutes)</label>
                                 </div>
                             </div>
-                            <button class="waves-effect waves-light btn light-blue lighten-2 myButton" id="addTrainBtn" type="submit"><i class="material-icons left">train</i><i class="material-icons right">send</i>submit</button>
+                            <button class="waves-effect waves-light btn light-blue lighten-2 myButton disabled" id="addTrainBtn" type="submit"><i class="material-icons left">train</i><i class="material-icons right">send</i>submit</button>
                     </div>
                     
                 </div>

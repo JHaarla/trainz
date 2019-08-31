@@ -68,6 +68,18 @@ $(document).ready(function(){
 
     // functions for the Trainz App____________________
 
+    $(".inputField").keyup(function(){
+        if ($("#trainName").val() != "" &&
+        $("#trainDestination").val() != "" &&
+        $("#firstTrain").val() != "" &&
+        $("#frequency").val() != "") {
+            $("#addTrainBtn").addClass("pulse").removeClass("disabled");
+        } else {
+            $("#addTrainBtn").addClass("disabled").removeClass("pulse");
+        };
+
+        
+    })
 
 
     // main process for the Trainz App___________________
@@ -96,6 +108,8 @@ $(document).ready(function(){
                 first: trainFirst,
                 ID: trainID
             };
+        
+            
 
             // upload newTrain object to firebase
             database.ref().push(newTrain);
@@ -110,6 +124,12 @@ $(document).ready(function(){
             $("#firstTrain").val(""); // probably need some moment.js stuff here
             $("#frequency").val("");
 
+            // remove animation from button and disable it
+            $("#addTrainBtn").addClass("disabled").removeClass("pulse");
+
+            // remove class="active" from the labels - resets the form visually
+            $(".validate").removeClass("valid");
+            $("label").removeClass("active");
         });
 
 

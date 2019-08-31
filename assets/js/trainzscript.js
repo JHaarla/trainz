@@ -4,8 +4,15 @@ $(document).ready(function(){
     // initialize parallax effect (materialize)
     $(".parallax").parallax();
 
+    //initialize time picker (Materialize.css)
+    // $(".timepicker").timepicker();
 
-
+    var elems = document.querySelectorAll('.timepicker');
+    M.Timepicker.init(elems, {
+        showClearBtn: true,
+        twelveHour:false,
+        defaultTime: "08:00"
+    });
 
     // Special JS dependent styling goes here________________
 
@@ -30,7 +37,6 @@ $(document).ready(function(){
             $(".header-placeholder").css({display: "none"});
         };
     };
-
 
 
     // Trainz App starts here
@@ -61,13 +67,17 @@ $(document).ready(function(){
     var minAway = "";
     var nextArrival = "";
 
-    var trainID = 0;
-
-    var trainData = {};
-
+    // var trainID = 0;
 
     // functions for the Trainz App____________________
 
+    new Formatter(document.getElementById("firstTrain"),
+      {pattern:"{{99}}:{{99}}",
+      persistent: false
+    }
+    );
+
+    // check for non-empty input fields on keyup. if not empty, activate & animate submit button - else keep the button inactive
     $(".inputField").keyup(function(){
         if ($("#trainName").val() != "" &&
         $("#trainDestination").val() != "" &&
@@ -77,9 +87,26 @@ $(document).ready(function(){
         } else {
             $("#addTrainBtn").addClass("disabled").removeClass("pulse");
         };
-
-        
     })
+
+    // $(".timepicker").focusin(function() {
+    //     var elems = document.querySelectorAll('.timepicker');
+    //     M.Timepicker.open(instance);
+    // });
+
+    // if ($("#fTrainTime").hasClass("active")) {
+    //     timePick.open();
+    // }
+    //The above did not work as expected...
+
+
+
+    //time calculation stuff with moment.js
+    // var trainFirstConv = moment(trainFirst, "HH:mm").subtract(1, "years");
+    // var timeDiff = moment().diff(moment(trainFirstConv), "minutes");
+    // var timeRemainder = timeDiff % trainFreq;
+    // minAway = trainFreq - timeRemainder;
+    // nextArrival = moment().add(minAway, "minutes");
 
 
     // main process for the Trainz App___________________
@@ -94,9 +121,21 @@ $(document).ready(function(){
             trainFirst = $("#firstTrain").val().trim(); // probably need some moment.js stuff here
             trainFreq = $("#frequency").val().trim();
 
-            minAway = "";//moment.js stuff here
-            nextArrival = "";// moment.js stuff here
-
+            // minAway = "";//moment.js stuff here
+            // nextArrival = "";// moment.js stuff here
+            var trainFirstConv = moment(trainFirst, "HH:mm").subtract(1, "years");
+            console.log("trainFirst: " + trainFirst);
+            console.log("tFirstConverted: " + trainFirstConv);
+            var timeDiff = moment().diff(moment(trainFirstConv), "minutes");
+            console.log("timeDiff: " + timeDiff);
+            var timeRemainder = timeDiff % trainFreq;
+            console.log("timeRemainder: " + timeRemainder);
+        
+            minAway = trainFreq - timeRemainder;
+            nextTrain = moment().add(minAway, "minutes");
+            nextArrival = moment(nextTrain).format("hh:mm A");
+        console.log("nextTrain: " + nextTrain);
+        console.log("nextArrival: " + nextArrival);
 
             // object to store the above info in
             var newTrain = {
@@ -106,7 +145,6 @@ $(document).ready(function(){
                 next: nextArrival,
                 away: minAway,
                 first: trainFirst,
-                ID: trainID
             };
         
             
@@ -121,13 +159,13 @@ $(document).ready(function(){
             //clear text areas so they're ready for the next train
             $("#trainName").val("");
             $("#trainDestination").val("");
-            $("#firstTrain").val(""); // probably need some moment.js stuff here
+            $("#firstTrain").val("");
             $("#frequency").val("");
 
             // remove animation from button and disable it
             $("#addTrainBtn").addClass("disabled").removeClass("pulse");
 
-            // remove class="active" from the labels - resets the form visually
+            // remove class="active" from the labels and "valid" from the input fileds - resets the form visually
             $(".validate").removeClass("valid");
             $("label").removeClass("active");
         });

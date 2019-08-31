@@ -30,7 +30,12 @@
     <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-database.js"></script>
 
-    
+    <!--moment.js-->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <!-- formatter.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/formatter.js/0.1.5/formatter.min.js" integrity="sha256-RKagdTf034yzDMNME9tFfWlmNcXJRUmsgJnC62uYXPw=" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -110,13 +115,13 @@
                             </div>
                             <div class="row" id="myrow">
                                 <div class="input-field col s12 mycol">
-                                    <input id="firstTrain" type="text" class="validate inputField">
-                                    <label id="label" for="firstTrain">First Train Time (HH:mm - military time)</label>
+                                    <input id="firstTrain" type="text" class="validate inputField timepicker">
+                                    <label id="label fTrainTime" for="firstTrain">First Train Time (HH:mm - military time)</label>
                                 </div>
                             </div>
                             <div class="row" id="myrow">
                                 <div class="input-field col s12 mycol">
-                                    <input id="frequency" type="text" class="validate inputField">
+                                    <input id="frequency" type="number" class="validate inputField">
                                     <label id="label" for="frequency">Frequency (in minutes)</label>
                                 </div>
                             </div>

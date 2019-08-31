@@ -71,14 +71,32 @@ $(document).ready(function(){
 
     // functions for the Trainz App____________________
 
+    // limits user input to the required format HH:mm
     new Formatter(document.getElementById("firstTrain"),
       {pattern:"{{99}}:{{99}}",
       persistent: false
     }
     );
 
+    function clearForm() {
+        //clear text areas so they're ready for the next train
+        $("#trainName").val("");
+        $("#trainDestination").val("");
+        $("#firstTrain").val("");
+        $("#frequency").val("");
+
+        // remove animation from button and disable it
+        $("#addTrainBtn").addClass("disabled").removeClass("pulse");
+
+        // remove class="active" from the labels and "valid" from the input fileds - resets the form visually
+        $(".validate").removeClass("valid");
+        $("label").removeClass("active");
+        
+    }
+
     // check for non-empty input fields on keyup. if not empty, activate & animate submit button - else keep the button inactive
-    $(".inputField").keyup(function(){
+    // $(".inputField").keyup(function(){
+        $(".inputField").keyup(function(){
         if ($("#trainName").val() != "" &&
         $("#trainDestination").val() != "" &&
         $("#firstTrain").val() != "" &&
@@ -88,6 +106,12 @@ $(document).ready(function(){
             $("#addTrainBtn").addClass("disabled").removeClass("pulse");
         };
     })
+
+    
+    // this will limit the Frequency field to only allow numbers
+    $('#frequency').bind('input paste', function(){
+        this.value = this.value.replace(/[^0-9]/g, '');
+  });
 
     // $(".timepicker").focusin(function() {
     //     var elems = document.querySelectorAll('.timepicker');
@@ -113,12 +137,12 @@ $(document).ready(function(){
 
         // Grab the addTrain button
         $("#addTrainBtn").on("click", function(event) {
-            event.preventDefault(); // I've never gotten this to work properly - doesn't seem to be working in the "solved" class projects either...
+            event.preventDefault(); // I've never gotten this to work properly - doesn't seem to be working in the "solved" class exercises either...
 
             // Grab user input
             trainName = $("#trainName").val().trim();
             trainDest = $("#trainDestination").val().trim();
-            trainFirst = $("#firstTrain").val().trim(); // probably need some moment.js stuff here
+            trainFirst = $("#firstTrain").val().trim(); 
             trainFreq = $("#frequency").val().trim();
 
             // minAway = "";//moment.js stuff here
@@ -134,8 +158,8 @@ $(document).ready(function(){
             minAway = trainFreq - timeRemainder;
             nextTrain = moment().add(minAway, "minutes");
             nextArrival = moment(nextTrain).format("hh:mm A");
-        console.log("nextTrain: " + nextTrain);
-        console.log("nextArrival: " + nextArrival);
+            console.log("nextTrain: " + nextTrain);
+            console.log("nextArrival: " + nextArrival);
 
             // object to store the above info in
             var newTrain = {
@@ -156,18 +180,8 @@ $(document).ready(function(){
 
 
 
-            //clear text areas so they're ready for the next train
-            $("#trainName").val("");
-            $("#trainDestination").val("");
-            $("#firstTrain").val("");
-            $("#frequency").val("");
 
-            // remove animation from button and disable it
-            $("#addTrainBtn").addClass("disabled").removeClass("pulse");
-
-            // remove class="active" from the labels and "valid" from the input fileds - resets the form visually
-            $(".validate").removeClass("valid");
-            $("label").removeClass("active");
+            clearForm();
         });
 
 

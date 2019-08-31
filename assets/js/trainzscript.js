@@ -61,6 +61,7 @@ $(document).ready(function(){
     var minAway = "";
     var nextArrival = "";
 
+    var trainID = 0;
 
     var trainData = {};
 
@@ -81,8 +82,8 @@ $(document).ready(function(){
             trainFirst = $("#firstTrain").val().trim(); // probably need some moment.js stuff here
             trainFreq = $("#frequency").val().trim();
 
-            minAway = //moment.js stuff here
-            nextArrival = // moment.js stuff here
+            minAway = "";//moment.js stuff here
+            nextArrival = "";// moment.js stuff here
 
 
             // object to store the above info in
@@ -91,7 +92,9 @@ $(document).ready(function(){
                 destination: trainDest,
                 frequency: trainFreq,
                 next: nextArrival,
-                away: minAway
+                away: minAway,
+                first: trainFirst,
+                ID: trainID
             };
 
             // upload newTrain object to firebase
@@ -107,14 +110,33 @@ $(document).ready(function(){
             $("#firstTrain").val(""); // probably need some moment.js stuff here
             $("#frequency").val("");
 
+        });
 
 
+        // Firebase event to add new train to DB & a new row to DOM 
+        database.ref().on("child_added", function(childSnapshot) {
 
+            // store DB info back into local variables
+            trainName = childSnapshot.val().name;
+            trainDest = childSnapshot.val().destination;
+            // trainFirst = childSnapshot.val().
+            trainFreq = childSnapshot.val().frequency;
+            minAway = childSnapshot.val().away;
+            nextArrival = childSnapshot.val().next;
 
-        
+            //create new row in table to append to (DOM stuff)
+            var newTrainRow = $("<tr>").append(
+                $("<td>").text(trainName),
+                $("<td>").text(trainDest),
+                $("<td>").text(trainFreq),
+                $("<td>").text(nextArrival),
+                $("<td>").text(minAway)
+            );
 
-        }
+            //append newTrainRow to the table on the DOM (DOM stuff)
+            $("#trainz > tbody").append(newTrainRow);
 
+        });
 
 
 

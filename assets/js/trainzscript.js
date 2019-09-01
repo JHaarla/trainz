@@ -113,16 +113,6 @@ $(document).ready(function(){
         this.value = this.value.replace(/[^0-9]/g, '');
   });
 
-    // $(".timepicker").focusin(function() {
-    //     var elems = document.querySelectorAll('.timepicker');
-    //     M.Timepicker.open(instance);
-    // });
-
-    // if ($("#fTrainTime").hasClass("active")) {
-    //     timePick.open();
-    // }
-    //The above did not work as expected...
-
 
 
     //time calculation stuff with moment.js
@@ -170,14 +160,9 @@ $(document).ready(function(){
                 away: minAway,
                 first: trainFirst,
             };
-        
-            
 
             // upload newTrain object to firebase
             database.ref().push(newTrain);
-
-            // do a timed toast here to show success or failure (5 seconds?)
-
 
 
 
@@ -205,8 +190,12 @@ $(document).ready(function(){
                 $("<td>").text(minAway)
             );
 
-            //append newTrainRow to the table on the DOM (DOM stuff)
+            //append newTrainRow to the table on the DOM (more DOM stuff)
             $("#trainz > tbody").append(newTrainRow);
+
+            // // do a timed toast here to show success (5 seconds?)
+            // M.toast({html: "Train successfully added!"}, 5000);
+
 
         });
 

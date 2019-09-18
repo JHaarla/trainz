@@ -7,6 +7,8 @@ There is also a persistent data component. I used Firebase as a database to stor
 
 On the visual, front-end side, I chose to use the Materialize CSS framework instead of Bootstrap. I enjoyed the challenge of learning a new framework. It also allowed me to accomplish some visual presentation styles that I had not explored in Bootstrap - parallax scrolling. Even though Materialize may not be quite as well fleshed out as bootstrap, I enjoyed working with it more and like the visual presentation better. 
 
+Live deployment: https://jhaarla.github.io/trainz/
+
 **Under the Hood**
 
 - Learn basic data validation methods
